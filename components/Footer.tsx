@@ -50,29 +50,29 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`bg-gray-900 text-white py-12 ${isHomePage ? 'md:snap-start' : ''}`}
+      className={`bg-gray-900 text-white py-8 sm:py-10 md:py-12 ${isHomePage ? 'md:snap-start' : ''}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Brand Section */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <div className="sm:col-span-2 md:col-span-1">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               YUNSEJUN
             </h3>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
               프론트엔드 개발자로서 사용자 경험을 개선하며 가치를 만들어내는 서비스를 개발합니다.
             </p>
           </div>
 
           {/* Navigation Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Navigation</h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Navigation</h4>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     href={link.path}
-                    className={`text-gray-400 hover:text-white transition-colors ${
+                    className={`text-sm sm:text-base text-gray-400 hover:text-white transition-colors ${
                       pathname === link.path ? 'text-white font-semibold' : ''
                     }`}
                   >
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect</h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Connect</h4>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <motion.a
@@ -106,8 +106,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-400">
+        <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+          <p className="text-xs sm:text-sm text-gray-400">
             © 2025 YUN SE JUN. All rights reserved.
           </p>
         </div>

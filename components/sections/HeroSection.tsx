@@ -41,7 +41,7 @@ function ProfileImage3D({ variants }: { variants: any }) {
       variants={variants}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="flex justify-center md:justify-end md:-mt-12"
+      className="flex justify-center md:justify-end md:-mt-12 mb-8 md:mb-0"
     >
       <motion.div
         style={{
@@ -86,31 +86,31 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen md:h-screen snap-start flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 px-4">
+    <section className="min-h-screen md:h-screen snap-start flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 px-4 sm:px-6 lg:px-8 py-20 md:py-0">
       <div className="max-w-7xl mx-auto w-full">
         <motion.div
           variants={heroVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 gap-12 items-center"
+          className="grid md:grid-cols-2 gap-8 md:gap-12 items-center"
         >
           {/* 왼쪽: 텍스트 콘텐츠 */}
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left order-2 md:order-1">
             <motion.div
               variants={childVariants}
-              className="inline-block mb-6 px-6 py-3 bg-gray-900 text-white rounded-full text-base font-bold shadow-lg"
+              className="inline-block mb-4 md:mb-6 px-4 md:px-6 py-2 md:py-3 bg-gray-900 text-white rounded-full text-sm md:text-base font-bold shadow-lg"
             >
               Frontend Developer
             </motion.div>
             <motion.h1
               variants={childVariants}
-              className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-gray-900 via-gray-700 to-black bg-clip-text text-transparent leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 md:mb-6 bg-gradient-to-r from-gray-900 via-gray-700 to-black bg-clip-text text-transparent leading-tight"
             >
               안녕하세요
             </motion.h1>
             <motion.p
               variants={childVariants}
-              className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight"
             >
               사용자 경험을 개선하며<br />
               <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
@@ -119,14 +119,16 @@ export default function HeroSection() {
             </motion.p>
             <motion.p
               variants={childVariants}
-              className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl"
+              className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto md:mx-0"
             >
               현대적인 웹 기술로 의미있는 서비스를 만들고, 사용자 중심의 직관적인 인터페이스를 설계합니다.
             </motion.p>
           </div>
 
           {/* 오른쪽: 프로필 사진 (3D Tilt Effect) */}
-          <ProfileImage3D variants={childVariants} />
+          <div className="order-1 md:order-2">
+            <ProfileImage3D variants={childVariants} />
+          </div>
         </motion.div>
       </div>
     </section>

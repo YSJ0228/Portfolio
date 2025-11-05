@@ -60,22 +60,22 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-black bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-black bg-clip-text text-transparent">
               About Me
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-600 leading-relaxed mb-4">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 leading-relaxed mb-3 sm:mb-4 px-4">
               사용자 경험을 개선하며 가치를 만들어내는 프론트엔드 개발자입니다.
             </p>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed px-4">
               React와 TypeScript를 활용해 사용자 경험을 개선하고, Next.js의 SSR을 통해 성능을 최적화하며,
               Lighthouse를 통한 성능 측정 및 개선으로 사용자 접근성을 향상시켜왔습니다.
               복잡한 상태 관리와 UX 개선을 통해 사용자 만족도를 높이는 것에 관심이 있으며,
@@ -86,10 +86,10 @@ export default function About() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <ScrollAnimation>
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-gray-800">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-gray-800">
               Skills
             </h2>
           </ScrollAnimation>

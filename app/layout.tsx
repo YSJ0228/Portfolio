@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   description: "React, TypeScript, Next.js를 활용한 프론트엔드 개발자 포트폴리오",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -51,19 +51,19 @@ export default function Contact() {
   ];
 
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen pt-16 md:pt-20">
       {/* Hero Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-black bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-black bg-clip-text text-transparent">
               Contact
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed px-4">
               새로운 프로젝트나 협업에 대해 이야기하고 싶으시다면
               언제든지 연락주세요!
             </p>
@@ -72,17 +72,17 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
             {/* Contact Form */}
             <ScrollAnimation>
-              <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
-                <div className="mb-8">
-                  <h2 className="text-4xl font-bold mb-2 text-gray-900">메시지 보내기</h2>
-                  <p className="text-gray-500 text-sm">빠르고 간편하게 연락주세요</p>
+              <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100">
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-gray-900">메시지 보내기</h2>
+                  <p className="text-gray-500 text-xs sm:text-sm">빠르고 간편하게 연락주세요</p>
                 </div>
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                       이름

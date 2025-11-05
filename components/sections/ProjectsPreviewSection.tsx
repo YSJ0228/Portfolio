@@ -24,18 +24,18 @@ export default function ProjectsPreviewSection() {
   }, [images.length]);
   
   return (
-    <section className="min-h-screen md:h-screen snap-start flex justify-center py-24 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <section className="min-h-screen md:h-screen snap-start flex justify-center py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="max-w-6xl mx-auto w-full flex flex-col justify-center">
         <ScrollAnimation>
-          <h2 className="text-6xl md:text-7xl font-bold text-center mb-20 bg-gradient-to-r from-gray-900 via-gray-800 to-black bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-8 sm:mb-12 md:mb-20 bg-gradient-to-r from-gray-900 via-gray-800 to-black bg-clip-text text-transparent">
             Projects
           </h2>
         </ScrollAnimation>
         
         <ScrollAnimation delay={0.2}>
           <div className="flex justify-center">
-            <div className="relative w-[300px]">
-              <div className="h-[600px]">
+            <div className="relative w-[250px] sm:w-[280px] md:w-[300px]">
+              <div className="h-[500px] sm:h-[560px] md:h-[600px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentImageIndex}
@@ -51,18 +51,19 @@ export default function ProjectsPreviewSection() {
                       width={300}
                       height={500}
                       priority={currentImageIndex === 0}
+                      className="w-full h-full object-contain"
                     />
                   </motion.div>
                 </AnimatePresence>
               </div>
               {/* 인디케이터 */}
-              <div className="flex justify-center gap-2 mt-8">
+              <div className="flex justify-center gap-2 mt-6 md:mt-8">
                 {images.map((_, index) => (
                   <div
                     key={index}
                     className={`w-2 h-2 rounded-full transition-all ${
                       index === currentImageIndex
-                        ? 'bg-gray-900 w-8'
+                        ? 'bg-gray-900 w-6 md:w-8'
                         : 'bg-gray-300'
                     }`}
                   />
@@ -73,10 +74,10 @@ export default function ProjectsPreviewSection() {
         </ScrollAnimation>
         
         <ScrollAnimation delay={0.4}>
-          <div className="text-center mt-16">
+          <div className="text-center mt-8 sm:mt-12 md:mt-16">
             <Link
               href="/projects"
-              className="px-8 py-3 bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white rounded-full font-semibold hover:shadow-lg transition-all inline-block hover:scale-105"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white rounded-full text-sm sm:text-base font-semibold hover:shadow-lg transition-all inline-block hover:scale-105"
             >
               모든 프로젝트 보기
             </Link>
