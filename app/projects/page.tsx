@@ -23,7 +23,7 @@ const projects: Project[] = [
     title: '무빙',
     description: '신뢰할 수 있는 이사 서비스 플랫폼',
     longDescription: '이사 고객과 이사 기사님을 연결해주는 매칭 플랫폼입니다. 고객은 원하는 이사 업체의 견적을 쉽게 비교하고 선택할 수 있으며, 기사님은 효율적으로 일을 받을 수 있습니다. 견적 비교, 견적 관리, 지역 기반 검색, 리뷰 시스템 등 편리한 기능을 제공합니다.',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'React Query', 'React Hook Form', 'Sentry'],
+    technologies: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Zustand', 'React Query', 'React Hook Form', 'Sentry'],
     image: '/Moving- iPhone .png',
     github: 'https://github.com/YSJ0228/Moving_fe',
     demo: 'https://www.gomoving.site/ko',

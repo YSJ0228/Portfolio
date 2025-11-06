@@ -50,7 +50,7 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`bg-gray-900 text-white py-8 sm:py-10 md:py-12 ${isHomePage ? 'md:snap-start' : ''}`}
+      className={`bg-gray-900 text-white py-8 sm:py-10 md:py-12 ${isHomePage ? 'snap-start' : ''}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
@@ -60,7 +60,9 @@ export default function Footer() {
               YUNSEJUN
             </h3>
             <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-              프론트엔드 개발자로서 사용자 경험을 개선하며 가치를 만들어내는 서비스를 개발합니다.
+              프론트엔드 개발자로서 사용자 경험을 <br /> 
+              개선하며 가치를 만들어내는 서비스를 <br /> 
+              개발합니다.
             </p>
           </div>
 

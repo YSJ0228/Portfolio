@@ -49,7 +49,7 @@ function ProfileImage3D({ variants }: { variants: any }) {
           rotateY,
           transformStyle: 'preserve-3d',
         }}
-        className="relative max-w-xl md:max-w-2xl"
+        className="relative max-w-[200px] sm:max-w-[270px] md:max-w-[300px] lg:max-w-[360px]"
       >
         <Image
           src="/profile_image.png"

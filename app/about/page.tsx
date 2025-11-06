@@ -103,7 +103,7 @@ export default function About() {
                   {frontendSkills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-6 py-3 bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white rounded-full text-lg md:text-xl font-semibold hover:shadow-lg transition-all"
+                      className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white rounded-full text-sm sm:text-base md:text-lg lg:text-xl font-semibold hover:shadow-lg transition-all"
                     >
                       {skill}
                     </span>
@@ -120,7 +120,7 @@ export default function About() {
                   {backendSkills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-full text-lg md:text-xl font-semibold hover:shadow-lg transition-all"
+                      className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-full text-sm sm:text-base md:text-lg lg:text-xl font-semibold hover:shadow-lg transition-all"
                     >
                       {skill}
                     </span>
@@ -137,7 +137,7 @@ export default function About() {
                   {deploySkills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-6 py-3 bg-gradient-to-r from-gray-600 to-gray-800 text-white rounded-full text-lg md:text-xl font-semibold hover:shadow-lg transition-all"
+                      className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-800 text-white rounded-full text-sm sm:text-base md:text-lg lg:text-xl font-semibold hover:shadow-lg transition-all"
                     >
                       {skill}
                     </span>
@@ -154,7 +154,7 @@ export default function About() {
                   {tools.map((tool) => (
                     <span
                       key={tool}
-                      className="px-6 py-3 bg-gray-700 text-white rounded-full text-lg md:text-xl font-semibold hover:shadow-lg transition-all"
+                      className="px-4 sm:px-6 py-2 sm:py-3 bg-gray-700 text-white rounded-full text-sm sm:text-base md:text-lg lg:text-xl font-semibold hover:shadow-lg transition-all"
                     >
                       {tool}
                     </span>
@@ -209,12 +209,14 @@ export default function About() {
             {training.map((item, index) => (
               <ScrollAnimation key={index} delay={index * 0.2}>
                 <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8">
                     <div>
                       <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">{item.name}</h3>
-                      <p className="text-xl md:text-2xl text-gray-900 font-semibold">{item.status}</p>
                     </div>
-                    <span className="text-lg md:text-xl text-gray-600 mt-2 md:mt-0">{item.period}</span>
+                    <div className="text-right mt-2 md:mt-0">
+                      <span className="text-lg md:text-xl text-gray-600 block">{item.status}</span>
+                      <span className="text-lg md:text-xl text-gray-600">{item.period}</span>
+                    </div>
                   </div>
                   <p className="text-lg md:text-xl text-gray-600 leading-relaxed mt-4">{item.description}</p>
                 </div>
