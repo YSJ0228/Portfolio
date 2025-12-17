@@ -50,6 +50,21 @@ export default function About() {
     },
   ];
 
+  const experiences = [
+    {
+      company: '텐핑거스(DATE POP)',
+      description: '로컬 마케팅 전문 스타트업 - 데이트 코스 큐레이션 서비스를 통해 로컬 매장과 소비자를 연결하는 플랫폼',
+      role: '프론트엔드 엔지니어(인턴)',
+      period: '2025.11.10 ~ 2025.12.09',
+      responsibilities: [
+        "체험단 서비스 플랫폼 '리뷰팝' 프론트엔드 개발 담당",
+        '캠페인 조회/신청, 예약 관리, 리뷰 작성/조회 등 사용자 플로우 구현',
+        '네이버 클라우드 플랫폼(NCP) 네이버 지도 API를 활용한 위치 정보 표시 기능 구현',
+        'FSD Lite 아키텍처 적용으로 확장성과 유지보수성 향상',
+      ],
+    },
+  ];
+
   const training = [
     {
       name: '코드잇 클라우드 풀스택 엔지니어 부트캠프',
@@ -166,11 +181,38 @@ export default function About() {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* Experience Section */}
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <ScrollAnimation>
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-gray-800">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-gray-800">
+              Career
+            </h2>
+          </ScrollAnimation>
+          
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <ScrollAnimation key={index} delay={index * 0.2}>
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="mb-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                      <h3 className="text-3xl md:text-4xl font-bold text-gray-800">{exp.company}</h3>
+                      <span className="text-lg md:text-xl text-gray-600 mt-2 sm:mt-0">{exp.period}</span>
+                    </div>
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600">{exp.description}</p>
+                  </div>
+                </div>
+              </ScrollAnimation>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <ScrollAnimation>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-gray-800">
               Education
             </h2>
           </ScrollAnimation>
@@ -178,7 +220,7 @@ export default function About() {
           <div className="space-y-8">
             {education.map((edu, index) => (
               <ScrollAnimation key={index} delay={index * 0.2}>
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                     <div>
                       <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">{edu.school}</h3>
@@ -197,10 +239,10 @@ export default function About() {
       </section>
 
       {/* Training Section */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-4xl mx-auto">
           <ScrollAnimation>
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-gray-800">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-gray-800">
               Training
             </h2>
           </ScrollAnimation>
@@ -208,7 +250,7 @@ export default function About() {
           <div className="space-y-8">
             {training.map((item, index) => (
               <ScrollAnimation key={index} delay={index * 0.2}>
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8">
                     <div>
                       <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">{item.name}</h3>
@@ -227,10 +269,10 @@ export default function About() {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <ScrollAnimation>
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 text-gray-800">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-gray-800">
               개발 철학
             </h2>
           </ScrollAnimation>
@@ -254,7 +296,7 @@ export default function About() {
               },
             ].map((item, index) => (
               <ScrollAnimation key={index} delay={index * 0.2}>
-                <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col">
+                <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col">
                   <div className="text-7xl mb-4">{item.icon}</div>
                   <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{item.title}</h3>
                   <p className="text-lg md:text-xl text-gray-600 leading-relaxed flex-grow">{item.description}</p>

@@ -45,8 +45,8 @@ export default function Contact() {
     {
       icon: '💬',
       label: 'LinkedIn',
-      value: 'linkedin.com/in/username',
-      link: 'https://linkedin.com',
+      value: 'linkedin.com/in/세준-윤-272746397',
+      link: 'https://www.linkedin.com/in/%EC%84%B8%EC%A4%80-%EC%9C%A4-272746397/',
     },
   ];
 
@@ -215,5 +215,3 @@ export default function Contact() {
     </main>
   );
 }
-
-
