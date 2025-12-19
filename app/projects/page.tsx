@@ -19,6 +19,17 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 0,
+    title: 'DATE POP 체험단',
+    description: '브랜드와 체험단을 연결하는 체험단 플랫폼',
+    longDescription: '체험단 참여자와 브랜드를 연결하는 매칭 플랫폼입니다. 체험단 참여자는 다양한 체험 기회를 쉽게 찾고 신청할 수 있으며, 체험 후 리뷰 작성으로 활동을 관리할 수 있습니다. 브랜드는 체험단을 효율적으로 모집하고 체계적으로 관리할 수 있습니다. 체험단 모집·신청, 리뷰 작성·관리, 지역·카테고리 기반 검색, 예약 시스템 등 편리한 기능을 제공합니다.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Mantine', 'SCSS', 'Zustand', 'TanStack Query', 'MSW (Mock API)'],
+    image: '/DatePop-iPhone.png',
+    github: 'https://github.com/YSJ0228/reviewpop',
+    demo: undefined,
+    featured: true,
+  },
+  {
     id: 1,
     title: '무빙',
     description: '신뢰할 수 있는 이사 서비스 플랫폼',

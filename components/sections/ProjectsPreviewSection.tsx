@@ -8,6 +8,7 @@ import ScrollAnimation from '@/components/ScrollAnimation';
 
 export default function ProjectsPreviewSection() {
   const images = [
+    '/DatePop-iPhone.png',
     '/Moving- iPhone .png',
     '/Photo- iPhone.png',
     '/ViewMyStartup- iPhone.png',
