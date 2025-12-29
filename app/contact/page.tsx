@@ -1,23 +1,63 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import ScrollAnimation from '@/components/ScrollAnimation';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import Link from "next/link";
+import ScrollAnimation from "@/components/ScrollAnimation";
+
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 여기에 폼 제출 로직을 추가하세요
-    console.log('Form submitted:', formData);
-    alert('메시지가 전송되었습니다!');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        toast.error("이메일 설정이 완료되지 않았습니다.", {
+          description: "관리자에게 문의해주세요.",
+        });
+        console.error("EmailJS keys are missing.");
+        return;
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      toast.success("메시지가 전송되었습니다!", {
+        description: "빠른 시일 내에 답변 드리겠습니다.",
+        duration: 5000,
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Email send failed:", error);
+      toast.error("메시지 전송에 실패했습니다.", {
+        description: "잠시 후 다시 시도해주세요.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -31,22 +71,22 @@ export default function Contact() {
 
   const contacts = [
     {
-      icon: '📧',
-      label: 'Email',
-      value: 'yunsejun3@gmail.com',
-      link: 'mailto:yunsejun3@gmail.com',
+      icon: "📧",
+      label: "Email",
+      value: "yunsejun3@gmail.com",
+      link: "mailto:yunsejun3@gmail.com",
     },
     {
-      icon: '💼',
-      label: 'GitHub',
-      value: 'github.com/YSJ0228',
-      link: 'https://github.com/YSJ0228',
+      icon: "💼",
+      label: "GitHub",
+      value: "github.com/YSJ0228",
+      link: "https://github.com/YSJ0228",
     },
     {
-      icon: '💬',
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/세준-윤-272746397',
-      link: 'https://www.linkedin.com/in/%EC%84%B8%EC%A4%80-%EC%9C%A4-272746397/',
+      icon: "💬",
+      label: "LinkedIn",
+      value: "linkedin.com/in/세준-윤-272746397",
+      link: "https://www.linkedin.com/in/%EC%84%B8%EC%A4%80-%EC%9C%A4-272746397/",
     },
   ];
 
@@ -64,8 +104,8 @@ export default function Contact() {
               Contact
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed px-4">
-              새로운 프로젝트나 협업에 대해 이야기하고 싶으시다면
-              언제든지 연락주세요!
+              새로운 프로젝트나 협업에 대해 이야기하고 싶으시다면 언제든지
+              연락주세요!
             </p>
           </motion.div>
         </div>
@@ -79,12 +119,22 @@ export default function Contact() {
             <ScrollAnimation>
               <div className="bg-white p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-sm border border-gray-100">
                 <div className="mb-6 sm:mb-8">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-gray-900">메시지 보내기</h2>
-                  <p className="text-gray-500 text-xs sm:text-sm">빠르고 간편하게 연락주세요</p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-gray-900">
+                    메시지 보내기
+                  </h2>
+                  <p className="text-gray-500 text-xs sm:text-sm">
+                    빠르고 간편하게 연락주세요
+                  </p>
                 </div>
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 sm:space-y-5"
+                >
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       이름
                     </label>
                     <input
@@ -98,9 +148,12 @@ export default function Contact() {
                       placeholder="이름을 입력해주세요"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       이메일
                     </label>
                     <input
@@ -114,9 +167,12 @@ export default function Contact() {
                       placeholder="이메일을 입력해주세요"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       메시지
                     </label>
                     <textarea
@@ -130,14 +186,22 @@ export default function Contact() {
                       placeholder="메시지를 입력해주세요"
                     />
                   </div>
-                  
+
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl mt-6"
+                    disabled={isSubmitting}
+                    whileHover={{
+                      scale: isSubmitting ? 1 : 1.02,
+                      y: isSubmitting ? 0 : -2,
+                    }}
+                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                    className={`w-full px-8 py-4 rounded-xl font-semibold transition-all shadow-lg ${
+                      isSubmitting
+                        ? "bg-gray-400 text-gray-200 cursor-not-allowed"
+                        : "bg-gray-900 text-white hover:bg-gray-800 hover:shadow-xl"
+                    } mt-6`}
                   >
-                    전송하기
+                    {isSubmitting ? "전송 중..." : "전송하기"}
                   </motion.button>
                 </form>
               </div>
@@ -146,12 +210,14 @@ export default function Contact() {
             {/* Contact Info */}
             <ScrollAnimation delay={0.2}>
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-gray-800">연락처 정보</h2>
+                <h2 className="text-3xl font-bold mb-6 text-gray-800">
+                  연락처 정보
+                </h2>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  아래의 연락처를 통해 직접 연락하실 수도 있습니다.
-                  빠른 응답을 위해 이메일을 권장합니다.
+                  아래의 연락처를 통해 직접 연락하실 수도 있습니다. 빠른 응답을
+                  위해 이메일을 권장합니다.
                 </p>
-                
+
                 <div className="space-y-6 mb-8">
                   {contacts.map((contact, index) => (
                     <motion.a
@@ -164,7 +230,9 @@ export default function Contact() {
                     >
                       <div className="text-4xl">{contact.icon}</div>
                       <div>
-                        <p className="font-semibold text-gray-800">{contact.label}</p>
+                        <p className="font-semibold text-gray-800">
+                          {contact.label}
+                        </p>
                         <p className="text-gray-600 group-hover:text-gray-900 transition-colors">
                           {contact.value}
                         </p>
@@ -174,10 +242,12 @@ export default function Contact() {
                 </div>
 
                 <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl">
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">응답 시간</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gray-800">
+                    응답 시간
+                  </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    일반적으로 24시간 이내에 응답드리도록 하겠습니다.
-                    급한 문의사항이 있으시다면 이메일로 연락주세요.
+                    일반적으로 24시간 이내에 응답드리도록 하겠습니다. 급한
+                    문의사항이 있으시다면 이메일로 연락주세요.
                   </p>
                 </div>
               </div>
@@ -194,8 +264,8 @@ export default function Contact() {
               함께 만들어요
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              새로운 도전과 협업을 기다리고 있습니다.
-              여러분의 아이디어를 실현하기 위해 함께 노력하겠습니다.
+              새로운 도전과 협업을 기다리고 있습니다. 여러분의 아이디어를
+              실현하기 위해 함께 노력하겠습니다.
             </p>
             <motion.div
               whileHover={{ scale: 1.05 }}

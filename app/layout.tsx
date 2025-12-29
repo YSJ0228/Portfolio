@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "sonner";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -16,11 +17,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "YUNSEJUN | Frontend Developer",
-  description: "React, TypeScript, Next.js를 활용한 프론트엔드 개발자 포트폴리오",
+  description:
+    "React, TypeScript, Next.js를 활용한 프론트엔드 개발자 포트폴리오",
 };
 
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
@@ -38,6 +40,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Toaster position="top-center" richColors />
         <Footer />
       </body>
     </html>
